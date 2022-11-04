@@ -1,0 +1,42 @@
+.prod-list{
+    list-style-type: none;
+    margin : 0;
+    padding : 0;
+}
+
+.prod-list li {
+    position : relative;                                   /* 부모 클래스 포지션은 반드시 relative 해야 한다 */
+    float : left;
+    padding : 0;
+    margin : 10px;
+    overflow : hidden;                                     /* 부모 안뒤쪽으로 감춰준다 */
+}
+
+.prod-list li img {                                        /* 자식 포지션이 left 하면 부모 포지션도 동일해야 한다 */
+    margin : 0;
+    padding : 0;
+    float : left;
+    z-index : 5;
+}
+
+.prod-list .caption{
+    position: absolute;
+    top : 200px;
+    width : 300px;                                          /* 이미지 크기에 맞추어 설정 */
+    height: 200px;
+    padding-top : 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity : 0;                                            /* 투명도 0 */
+    z-index : 10;                                           /* z-index 값이 큰 쪽이 위로 */
+    transition : all 0.2s;                                  
+}
+
+.prod-list li:hover .caption{                                /* 마우스 커서를 li에 올리면 caption이 실행 */
+    opacity: 1;                 
+    transform : translateY(-200px);                           /* 천천히 올라오게 한다 */
+}
+
+.prod-list .caption h1, .prod-list .caption p{
+    color : white;
+    text-align: center;
+}
